@@ -147,6 +147,7 @@ export default LandingPage;
 
 const inStyles = {
   signInPaper: {
+    maxWidth: '348px',
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'center',
