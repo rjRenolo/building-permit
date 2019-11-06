@@ -1,6 +1,15 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import styles from './LandingPage.module.css';
-import { Typography, Paper, TextField, Button } from '@material-ui/core';
+import {
+  Typography,
+  Paper,
+  TextField,
+  Button,
+  CircularProgress
+} from '@material-ui/core';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
 import styled from 'styled-components';
 
 class LandingPage extends Component {
@@ -8,23 +17,54 @@ class LandingPage extends Component {
     username: '',
     password: '',
     err: false,
-    loading: false
+    errMsg: '',
+    loading: false,
+    isAuth: false,
+    token: localStorage.getItem('TOKEN')
   };
 
   onInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  signIn = e => {
+
+  signInHandler = () => {
     const { username, password } = this.state;
-    if (!username && !password) {
-      this.setState({ err: true });
+    if (!username || !password) {
+      this.setState({ err: true, errMsg: 'Please fill-up all fields.' });
     } else {
-      this.setState({ err: false, loading : true });
+      this.setState({ loading: true });
+      // request config
+      const reqConfig = { headers: { 'Content-type': 'application/json' } };
+      // body
+      const reqBody = JSON.stringify({ username, password });
+
+      // actual request
+      axios
+        .post(
+          'http://lgu.syncsoftsolutions.com/rest-auth/login/',
+          reqBody,
+          reqConfig
+        )
+        .then(response => {
+          this.setState({
+            loading: false,
+            err: false,
+            errMsg: '',
+            token: response.data.key
+          });
+          localStorage.setItem('TOKEN', 'TOKEN ' + response.data.key);
+        })
+        .catch(error => {
+          this.setState({
+            loading: false,
+            err: true,
+            errMsg: error.response.data.non_field_errors[0]
+          });
+        });
     }
   };
-
   render() {
-    const { username, password, err } = this.state;
+    const { username, password, err, errMsg, loading } = this.state;
     return (
       <div className={styles.container}>
         <div className={styles.intro}>
@@ -44,35 +84,60 @@ class LandingPage extends Component {
           </Typography>
         </div>
         <div className={styles.signInForm}>
-          <Paper style={inStyles.signInPaper}>
-            <Typography style={{ marginBottom: '24px' }} variant="h4">
-              Online Office Portal
-            </Typography>
-            <StyledTextField
-              name="username"
-              variant="outlined"
-              label="Username/Email"
-              value={username}
-              error={err}
-              onChange={this.onInputChange}
-            />
-            <StyledTextField
-              name="password"
-              variant="outlined"
-              label="Password"
-              type="password"
-              value={password}
-              error={err}
-              onChange={this.onInputChange}
-            />
-            <Button
-              style={inStyles.signInButton}
-              variant="contained"
-              onClick={this.signIn}
-            >
-              Sign In
-            </Button>
-          </Paper>
+          <ThemeProvider theme={theme}>
+            <Paper style={inStyles.signInPaper} elevation={6}>
+              <Typography style={{ marginBottom: '24px' }} variant="h4">
+                Online Office Portal
+              </Typography>
+              <Typography variant="subtitle1" color="error">
+                {errMsg}
+              </Typography>
+
+              <StyledTextField
+                name="username"
+                variant="outlined"
+                label="Username/Email"
+                value={username}
+                error={err}
+                autoComplete="off"
+                onChange={this.onInputChange}
+              />
+              <StyledTextField
+                name="password"
+                variant="outlined"
+                label="Password"
+                type="password"
+                value={password}
+                error={err}
+                onChange={this.onInputChange}
+              />
+
+              <div className={styles.ButtonWrapper}>
+                <Button
+                  className={styles.Button}
+                  color="primary"
+                  style={inStyles.signInButton}
+                  variant="contained"
+                  onClick={this.signInHandler}
+                  type="submit"
+                  disabled={loading}
+                >
+                  Sign In
+                </Button>
+                {loading && (
+                  <CircularProgress
+                    style={{
+                      position: 'absolute',
+                      top: 48 / 3.5,
+                      left: (48 * 3) / 2.5
+                    }}
+                    size={28}
+                    color="secondary"
+                  />
+                )}
+              </div>
+            </Paper>
+          </ThemeProvider>
         </div>
       </div>
     );
@@ -85,11 +150,9 @@ const inStyles = {
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'center',
-    padding: '24px',
-    boxShadow: '0px 3px 6px #0000006e'
+    padding: '24px'
   },
   signInButton: {
-    background: '#02A8E8',
     color: 'white',
     borderRadius: 3,
     border: 0,
@@ -108,13 +171,22 @@ const StyledTextField = styled(TextField)`
   }
   .MuiOutlinedInput-root {
     fieldset {
-      border-color: skyblue;
+      border-color: #02a8e8;
     }
     &:hover fieldset {
-      border-color: skyblue;
+      border-color: #02a8e8;
     }
     &.Mui-focused fieldset {
-      border-color: skyblue;
+      border-color: #02a8e8;
     }
   }
 `;
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#02A8E8'
+    },
+    secondary: green
+  }
+});

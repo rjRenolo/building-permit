@@ -21,3 +21,7 @@
   color: #02a8e8;
   font-weight: 700;
 }
+
+.ButtonWrapper {
+  position: relative;
+}
