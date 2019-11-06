@@ -1,0 +1,23 @@
+.container {
+  height: 83vh;
+  margin: auto;
+  max-width: 1108px;
+  display: flex;
+  justify-content: center;
+}
+
+.intro {
+  width: 40%;
+  margin: auto;
+}
+
+.signInForm {
+  background-color: pink;
+  width: 40%;
+  margin: auto;
+}
+
+.portalTitle {
+  color: #02a8e8;
+  font-weight: 700;
+}
