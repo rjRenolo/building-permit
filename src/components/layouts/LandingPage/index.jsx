@@ -12,6 +12,9 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import styled from 'styled-components';
 
+import { connect } from 'react-redux';
+import { signIn } from '../../../actions/authActions';
+
 class LandingPage extends Component {
   state = {
     username: '',
@@ -19,8 +22,8 @@ class LandingPage extends Component {
     err: false,
     errMsg: '',
     loading: false,
-    isAuth: false,
-    token: localStorage.getItem('TOKEN')
+    isAuth: false
+    // token: localStorage.getItem('TOKEN')
   };
 
   onInputChange = e => {
@@ -33,38 +36,13 @@ class LandingPage extends Component {
       this.setState({ err: true, errMsg: 'Please fill-up all fields.' });
     } else {
       this.setState({ loading: true });
-      // request config
-      const reqConfig = { headers: { 'Content-type': 'application/json' } };
-      // body
-      const reqBody = JSON.stringify({ username, password });
-
-      // actual request
-      axios
-        .post(
-          'http://lgu.syncsoftsolutions.com/rest-auth/login/',
-          reqBody,
-          reqConfig
-        )
-        .then(response => {
-          this.setState({
-            loading: false,
-            err: false,
-            errMsg: '',
-            token: response.data.key
-          });
-          localStorage.setItem('TOKEN', 'TOKEN ' + response.data.key);
-        })
-        .catch(error => {
-          this.setState({
-            loading: false,
-            err: true,
-            errMsg: error.response.data.non_field_errors[0]
-          });
-        });
+      this.props.signIn({ username, password });
     }
   };
   render() {
     const { username, password, err, errMsg, loading } = this.state;
+    const { status, errorMsg } = this.props.errorRed;
+
     return (
       <div className={styles.container}>
         <div className={styles.intro}>
@@ -90,7 +68,7 @@ class LandingPage extends Component {
                 Online Office Portal
               </Typography>
               <Typography variant="subtitle1" color="error">
-                {errMsg}
+                {errorMsg.non_field_errors}
               </Typography>
 
               <StyledTextField
@@ -98,7 +76,7 @@ class LandingPage extends Component {
                 variant="outlined"
                 label="Username/Email"
                 value={username}
-                error={err}
+                error={status}
                 autoComplete="off"
                 onChange={this.onInputChange}
               />
@@ -108,7 +86,7 @@ class LandingPage extends Component {
                 label="Password"
                 type="password"
                 value={password}
-                error={err}
+                error={status}
                 onChange={this.onInputChange}
               />
 
@@ -120,11 +98,11 @@ class LandingPage extends Component {
                   variant="contained"
                   onClick={this.signInHandler}
                   type="submit"
-                  disabled={loading}
+                  disabled={this.props.authRed.signInLoading}
                 >
                   Sign In
                 </Button>
-                {loading && (
+                {this.props.authRed.signInLoading && (
                   <CircularProgress
                     style={{
                       position: 'absolute',
@@ -143,7 +121,16 @@ class LandingPage extends Component {
     );
   }
 }
-export default LandingPage;
+
+const mapStateToProps = state => ({
+  authRed: state.authRed,
+  errorRed: state.errorRed
+});
+
+export default connect(
+  mapStateToProps,
+  { signIn }
+)(LandingPage);
 
 const inStyles = {
   signInPaper: {
@@ -191,3 +178,30 @@ const theme = createMuiTheme({
     secondary: green
   }
 });
+
+// import {createStore} from 'redux'
+// const store = createStore(reducer)
+// then create that reducer which contain the initialState and actions
+
+// import {Provider} from 'react-redux'
+// <Provider store={store}>CompoName</Provider>
+
+// REDUCER SETUP
+// const initialState = {
+//   name : 'RJ'
+// }
+// const reducer = (state = initialState, action) =>{
+//   return state;
+// }
+
+// const mapStateToProps = state =>{
+//   return {
+//     somePropName : state.somethingOnInitialState
+//   }
+// }
+// const mapDispatchToProps = dispatch =>{
+//   return{
+//     funcName : () => dispatch({type: 'ALLCAPS', paylod:"somePayload"})
+//   }
+// }
+// export default connect(mapStateToProps, mapDispatchToProps)(compoName)
