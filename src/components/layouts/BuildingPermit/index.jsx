@@ -35,14 +35,14 @@ class BuildingPermit extends Component {
               <Button
                 color="secondary"
                 variant="contained"
-                style={{ color: 'white' }}
+                style={{ color: 'white', width: '200px' }}
                 startIcon={<AddIcon style={{ fontSize: '28px' }} />}
               >
                 New Assessment
               </Button>
             </div>
           </ThemeProvider>
-          <div style={{ background: 'pink', margin: '12px' }}>
+          <div style={{ margin: '12px' }}>
             <MaterialTable
               title="Building Permit Assessment List"
               columns={[
