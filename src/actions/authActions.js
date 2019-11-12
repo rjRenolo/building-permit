@@ -11,7 +11,11 @@ export const signIn = ({ username, password }) => dispatch => {
   const reqBody = JSON.stringify({ username, password });
   // axios request
   axios
-    .post('/rest-auth/login/', reqBody, reqConfig)
+    .post(
+      'https://lgu-platform-backend.herokuapp.com/rest-auth/login/',
+      reqBody,
+      reqConfig
+    )
     .then(res => {
       localStorage.setItem('TOKEN', res.data.key);
       dispatch({ type: 'SIGN_IN' });
