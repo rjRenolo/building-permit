@@ -7,7 +7,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import Header from './components/layouts/Header';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import store from './store';
 
 import LandingPage from './components/layouts/LandingPage';
@@ -15,31 +15,38 @@ import BuildingPermit from './components/layouts/BuildingPermit';
 import PageNotFound from './components/layouts/PageNotFound';
 
 class App extends Component {
-  state = {
-    isAuthenticated: false
-  };
   render() {
+    const { tokenKey } = this.props.authRed;
+
     return (
-      //IMPLEMENT REDUX AND STORE AUTH PROPERTIES
-      <Provider store={store}>
-        <div className="App">
-          <Header />
-          <Router>
-            <Switch>
-              {/* <Route exact path="/" component={LandingPage} /> */}
-              <Route exact path="/buildingpermit" component={BuildingPermit} />
-              {this.state.isAuthenticated ? (
-                <Redirect from="/" to="/buildingpermit" />
-              ) : (
-                <Route path="/" component={LandingPage} />
-              )}
-              <Route component={PageNotFound} />
-            </Switch>
-          </Router>
-        </div>
-      </Provider>
+      <div className="App">
+        <Header />
+        <Router>
+          {tokenKey ? (
+            <Redirect from="/" to="/buildingpermit" />
+          ) : (
+            <Redirect to="/" />
+          )}
+          <Switch>
+            {/* <Route exact path="/" component={LandingPage} /> */}
+            <Route exact path="/buildingpermit" component={BuildingPermit} />
+            <Route exact path="/" component={LandingPage} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  authRed: state.authRed
+});
+
+export default connect(mapStateToProps)(App);
+
+// const mapStateToProps = state => ({
+//   authRed: state.authRed
+// });
+
+// export default connect(mapStateToProps)(App);

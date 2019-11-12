@@ -98,7 +98,7 @@ class LandingPage extends Component {
               />
 
               <div className={styles.ButtonWrapper}>
-                <Link to="/buildingpermit">
+                
                   <Button
                     className={styles.Button}
                     color="primary"
@@ -110,7 +110,7 @@ class LandingPage extends Component {
                   >
                     Sign In
                   </Button>
-                </Link>
+                
                 {this.props.authRed.signInLoading && (
                   <CircularProgress
                     style={{

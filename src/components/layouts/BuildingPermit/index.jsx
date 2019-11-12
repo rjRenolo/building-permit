@@ -19,14 +19,14 @@ class BuildingPermit extends Component {
     isAuth: true
   };
 
+  // {/* {!this.state.isAuth ? (
+  //   <Redirect from="/buildingpermit" to="/" />
+  // ) : (
+  //   <Redirect to="/buildingpermit" />
+  // )} */}
   render() {
     return (
       <Fragment>
-        {!this.state.isAuth ? (
-          <Redirect from="/buildingpermit" to="/" />
-        ) : (
-          <Redirect to="/buildingpermit" />
-        )}
         <div
           style={{
             width: '100%',
