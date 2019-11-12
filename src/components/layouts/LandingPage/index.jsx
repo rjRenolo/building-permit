@@ -15,6 +15,14 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { signIn } from '../../../actions/authActions';
 
+import { Link } from 'react-router-dom';
+
+/*
+  check for authentication on redux
+  redirect to the page if authenticated.
+  done.
+*/
+
 class LandingPage extends Component {
   state = {
     username: '',
@@ -23,7 +31,6 @@ class LandingPage extends Component {
     errMsg: '',
     loading: false,
     isAuth: false
-    // token: localStorage.getItem('TOKEN')
   };
 
   onInputChange = e => {
@@ -91,17 +98,19 @@ class LandingPage extends Component {
               />
 
               <div className={styles.ButtonWrapper}>
-                <Button
-                  className={styles.Button}
-                  color="primary"
-                  style={inStyles.signInButton}
-                  variant="contained"
-                  onClick={this.signInHandler}
-                  type="submit"
-                  disabled={this.props.authRed.signInLoading}
-                >
-                  Sign In
-                </Button>
+                <Link to="/buildingpermit">
+                  <Button
+                    className={styles.Button}
+                    color="primary"
+                    style={inStyles.signInButton}
+                    variant="contained"
+                    onClick={this.signInHandler}
+                    type="submit"
+                    disabled={this.props.authRed.signInLoading}
+                  >
+                    Sign In
+                  </Button>
+                </Link>
                 {this.props.authRed.signInLoading && (
                   <CircularProgress
                     style={{

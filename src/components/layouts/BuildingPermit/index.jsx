@@ -4,13 +4,29 @@ import { Typography, Button } from '@material-ui/core';
 import MaterialTable from 'material-table';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
-
 import AddIcon from '@material-ui/icons/Add';
 
+import { Redirect } from 'react-router-dom';
+
 class BuildingPermit extends Component {
+  /*
+  just show a modal that he/she is not authenticated
+  ok button for the modal
+  and redirect
+
+*/
+  state = {
+    isAuth: true
+  };
+
   render() {
     return (
       <Fragment>
+        {!this.state.isAuth ? (
+          <Redirect from="/buildingpermit" to="/" />
+        ) : (
+          <Redirect to="/buildingpermit" />
+        )}
         <div
           style={{
             width: '100%',
