@@ -8,6 +8,9 @@ import AddIcon from '@material-ui/icons/Add';
 
 import { Redirect } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import { getAssessmentList } from '../../../actions/assessmentActions';
+
 class BuildingPermit extends Component {
   /*
   just show a modal that he/she is not authenticated
@@ -24,6 +27,11 @@ class BuildingPermit extends Component {
   // ) : (
   //   <Redirect to="/buildingpermit" />
   // )} */}
+
+  componentDidMount() {
+    this.props.getAssessmentList(localStorage.getItem('TOKEN'));
+  }
+
   render() {
     return (
       <Fragment>
@@ -68,88 +76,8 @@ class BuildingPermit extends Component {
                 { title: 'Updated On', field: 'updated_on' },
                 { title: 'Filing Fee', field: 'filing_fee', type: 'numeric' }
               ]}
-              data={[
-                {
-                  id: 1,
-                  created_on: '2019-11-06T11:19:21.991267Z',
-                  updated_on: '2019-11-06T11:19:21.991308Z',
-                  filing_fee: 0.0,
-                  occupancy_group: {
-                    id: 1,
-                    name: 'Division A-1'
-                  }
-                },
-                {
-                  id: 2,
-                  created_on: '2019-11-10T16:24:14.802543Z',
-                  updated_on: '2019-11-10T16:24:14.802588Z',
-                  filing_fee: 0.0,
-                  occupancy_group: {
-                    id: 5,
-                    name: 'Division C-2'
-                  }
-                },
-                {
-                  id: 2,
-                  created_on: '2019-11-10T16:24:14.802543Z',
-                  updated_on: '2019-11-10T16:24:14.802588Z',
-                  filing_fee: 0.0,
-                  occupancy_group: {
-                    id: 5,
-                    name: 'Division C-2'
-                  }
-                },
-                {
-                  id: 2,
-                  created_on: '2019-11-10T16:24:14.802543Z',
-                  updated_on: '2019-11-10T16:24:14.802588Z',
-                  filing_fee: 0.0,
-                  occupancy_group: {
-                    id: 5,
-                    name: 'Division C-2'
-                  }
-                },
-                {
-                  id: 2,
-                  created_on: '2019-11-10T16:24:14.802543Z',
-                  updated_on: '2019-11-10T16:24:14.802588Z',
-                  filing_fee: 0.0,
-                  occupancy_group: {
-                    id: 5,
-                    name: 'Division C-2'
-                  }
-                },
-                {
-                  id: 2,
-                  created_on: '2019-11-10T16:24:14.802543Z',
-                  updated_on: '2019-11-10T16:24:14.802588Z',
-                  filing_fee: 0.0,
-                  occupancy_group: {
-                    id: 5,
-                    name: 'Division C-2'
-                  }
-                },
-                {
-                  id: 2,
-                  created_on: '2019-11-10T16:24:14.802543Z',
-                  updated_on: '2019-11-10T16:24:14.802588Z',
-                  filing_fee: 0.0,
-                  occupancy_group: {
-                    id: 5,
-                    name: 'Division C-2'
-                  }
-                },
-                {
-                  id: 2,
-                  created_on: '2019-11-10T16:24:14.802543Z',
-                  updated_on: '2019-11-10T16:24:14.802588Z',
-                  filing_fee: 0.0,
-                  occupancy_group: {
-                    id: 5,
-                    name: 'Division C-2'
-                  }
-                }
-              ]}
+              data={this.props.assessmentRed.assessmentList}
+              isLoading={this.props.assessmentRed.assessmentLoading}
               actions={[
                 {
                   icon: 'edit',
@@ -165,7 +93,14 @@ class BuildingPermit extends Component {
   }
 }
 
-export default BuildingPermit;
+const mapStateToProps = state => ({
+  assessmentRed: state.assessmentRed
+});
+
+export default connect(
+  mapStateToProps,
+  { getAssessmentList }
+)(BuildingPermit);
 
 const theme = createMuiTheme({
   palette: {

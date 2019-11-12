@@ -20,6 +20,7 @@ export const signIn = ({ username, password }) => dispatch => {
       localStorage.setItem('TOKEN', res.data.key);
       dispatch({ type: 'SIGN_IN' });
       dispatch({ type: 'CLEAR_ERRORS' });
+      dispatch({ type: 'LOADED' });
     })
     .catch(err => {
       //   console.log(err.response);
