@@ -35,6 +35,11 @@ class BuildingPermit extends Component {
   render() {
     return (
       <Fragment>
+        {!this.props.authRed.tokenKey ? (
+          <Redirect from="/buildingpermit" to="/" />
+        ) : (
+          <Redirect to="/buildingpermit" />
+        )}
         <div
           style={{
             width: '100%',
@@ -94,7 +99,8 @@ class BuildingPermit extends Component {
 }
 
 const mapStateToProps = state => ({
-  assessmentRed: state.assessmentRed
+  assessmentRed: state.assessmentRed,
+  authRed: state.authRed
 });
 
 export default connect(
