@@ -105,22 +105,13 @@ class NewAssesmentDialog extends Component {
                     </Select>
                   </FormControl>
 
-                  <FormControl variant="outlined">
-                    <InputLabel>Floor Area</InputLabel>
-                    <OutlinedInput
-                      endAdornment={
-                        <InputAdornment position="end">sqr. m.</InputAdornment>
-                      }
-                    />
-                  </FormControl>
-
                   <TextField
                     style={{ marginBottom: '8px' }}
                     variant="outlined"
                     label="Floor Area"
                     InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="end">Kg</InputAdornment>
+                      endAdornment: (
+                        <InputAdornment position="end">kWa</InputAdornment>
                       )
                     }}
                   />
@@ -128,12 +119,22 @@ class NewAssesmentDialog extends Component {
                     style={{ marginBottom: '8px' }}
                     variant="outlined"
                     label="Additional Floor Area"
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">kWa</InputAdornment>
+                      )
+                    }}
                   />
                   <TextField
                     style={{ backgroundColor: 'grey' }}
                     disabled
                     variant="outlined"
                     label="Total Floor Area"
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">kWa</InputAdornment>
+                      )
+                    }}
                   />
                 </div>
                 <div
