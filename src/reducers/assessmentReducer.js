@@ -1,6 +1,8 @@
 const initialState = {
   assessmentLoading: false,
-  assessmentList: []
+  occupancyGroupList: [],
+  assessmentList: [],
+  newAssessmentDialog: false
 };
 
 export default function(state = initialState, action) {
@@ -21,6 +23,24 @@ export default function(state = initialState, action) {
       return {
         ...state,
         assessmentList: action.payload
+      };
+
+    case 'GET_OCCUPANCYGROUPLIST':
+      return {
+        ...state,
+        occupancyGroupList: action.payload
+      };
+
+    case 'OPEN_ASSESSMENTDIALOG':
+      return {
+        ...state,
+        newAssessmentDialog: true
+      };
+
+    case 'CLOSE_ASSESSMENTDIALOG':
+      return {
+        ...state,
+        newAssessmentDialog: false
       };
 
     default:

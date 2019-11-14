@@ -1,5 +1,6 @@
 // SET_TOKEN
 // REMOVE_TOKEN
+// https://lgu-platform-backend.herokuapp.com
 
 import axios from 'axios';
 import { getErrors } from './errorActions';

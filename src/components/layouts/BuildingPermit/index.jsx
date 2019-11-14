@@ -1,16 +1,18 @@
 import React, { Component, Fragment } from 'react';
 import styles from './BuildingPermit.module.css';
-import { Typography, Button } from '@material-ui/core';
 import MaterialTable from 'material-table';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import AddIcon from '@material-ui/icons/Add';
-
+import { Typography, Button } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
-
 import { connect } from 'react-redux';
-import { getAssessmentList } from '../../../actions/assessmentActions';
+import {
+  getAssessmentList,
+  getOccupancyGroupList
+} from '../../../actions/assessmentActions';
 
+import NewAssessmentDialog from '../NewAssessmentDialog';
 class BuildingPermit extends Component {
   /*
   just show a modal that he/she is not authenticated
@@ -22,14 +24,8 @@ class BuildingPermit extends Component {
     isAuth: true
   };
 
-  // {/* {!this.state.isAuth ? (
-  //   <Redirect from="/buildingpermit" to="/" />
-  // ) : (
-  //   <Redirect to="/buildingpermit" />
-  // )} */}
-
   componentDidMount() {
-    this.props.getAssessmentList(localStorage.getItem('TOKEN'));
+    this.props.getAssessmentList(this.props.authRed.tokenKey);
   }
 
   render() {
@@ -51,6 +47,7 @@ class BuildingPermit extends Component {
             paddingBottom: '24px'
           }}
         >
+          <NewAssessmentDialog />
           <Typography variant="h2" gutterBottom>
             Municipal Engineer's Office
           </Typography>
@@ -66,6 +63,9 @@ class BuildingPermit extends Component {
                 variant="contained"
                 style={{ color: 'white', width: '200px' }}
                 startIcon={<AddIcon style={{ fontSize: '28px' }} />}
+                onClick={() =>
+                  this.props.getOccupancyGroupList(this.props.authRed.tokenKey)
+                }
               >
                 New Assessment
               </Button>
@@ -105,7 +105,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAssessmentList }
+  { getAssessmentList, getOccupancyGroupList }
 )(BuildingPermit);
 
 const theme = createMuiTheme({

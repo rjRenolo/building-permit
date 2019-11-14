@@ -18,21 +18,27 @@ class App extends Component {
   render() {
     const { tokenKey } = this.props.authRed;
 
+    /*
+    new assessment
+      fullscreen modal
+      fetch occupancy groups
+    */
+
     return (
       <div className="App">
         <Header />
         <Router>
-          {tokenKey ? (
-            <Redirect from="/" to="/buildingpermit" />
-          ) : (
-            <Redirect to="/" />
-          )}
           <Switch>
             {/* <Route exact path="/" component={LandingPage} /> */}
             <Route exact path="/buildingpermit" component={BuildingPermit} />
             <Route exact path="/" component={LandingPage} />
             <Route component={PageNotFound} />
           </Switch>
+          {tokenKey ? (
+            <Redirect from="/" to="/buildingpermit" />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Router>
       </div>
     );
