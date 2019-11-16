@@ -36,6 +36,10 @@ class NewAssesmentDialog extends Component {
     });
   };
 
+  clearState = () => {
+    this.setState({ selectedOccupancy: '', selectedOccupancyDescription: '' });
+  };
+
   render() {
     return (
       <div>
@@ -72,14 +76,21 @@ class NewAssesmentDialog extends Component {
                   Construction
                 </Typography>
               </div>
-              <div style={{ width: '100%', display: 'flex' }}>
-                <div
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                <Paper
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     padding: '14px',
-                    width: '30%'
+                    margin: '4px',
+                    width: '26%'
                   }}
                 >
                   <FormControl variant="filled">
@@ -111,7 +122,11 @@ class NewAssesmentDialog extends Component {
                     label="Floor Area"
                     InputProps={{
                       endAdornment: (
-                        <InputAdornment position="end">kWa</InputAdornment>
+                        <InputAdornment position="end">
+                          <p>
+                            m<sup>2</sup>
+                          </p>
+                        </InputAdornment>
                       )
                     }}
                   />
@@ -121,7 +136,11 @@ class NewAssesmentDialog extends Component {
                     label="Additional Floor Area"
                     InputProps={{
                       endAdornment: (
-                        <InputAdornment position="end">kWa</InputAdornment>
+                        <InputAdornment position="end">
+                          <p>
+                            m<sup>2</sup>
+                          </p>
+                        </InputAdornment>
                       )
                     }}
                   />
@@ -132,16 +151,21 @@ class NewAssesmentDialog extends Component {
                     label="Total Floor Area"
                     InputProps={{
                       endAdornment: (
-                        <InputAdornment position="end">kWa</InputAdornment>
+                        <InputAdornment position="end">
+                          <p>
+                            m<sup>2</sup>
+                          </p>
+                        </InputAdornment>
                       )
                     }}
                   />
-                </div>
-                <div
+                </Paper>
+                <Paper
                   style={{
                     padding: '14px',
-                    backgroundColor: 'violet',
-                    width: '70%'
+                    // backgroundColor: 'violet',
+                    margin: '4px',
+                    width: '66%'
                   }}
                 >
                   <Typography variant="subtitle1">
@@ -149,7 +173,7 @@ class NewAssesmentDialog extends Component {
                       ? 'Please Select Occupancy Group'
                       : this.state.selectedOccupancy.description}
                   </Typography>
-                </div>
+                </Paper>
               </div>
               <div style={{ float: 'right', padding: '12px' }}>
                 <Button
@@ -167,6 +191,7 @@ class NewAssesmentDialog extends Component {
                   color="danger"
                   style={{ borderColor: 'red', padding: 'inherit' }}
                   variant="outlined"
+                  onClick={() => this.clearState()}
                 >
                   Cancel
                 </Button>
