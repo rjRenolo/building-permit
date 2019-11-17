@@ -77,6 +77,8 @@ export const submitNewlyCreatedAssessment = (
           statusText: res.data.message
         }
       });
+      dispatch(getAssessmentList(localStorage.getItem('TOKEN')));
+      dispatch({ type: 'CLOSE_ASSESSMENTDIALOG' });
     })
     .catch(err => {
       dispatch({
