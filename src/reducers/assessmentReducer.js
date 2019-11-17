@@ -2,7 +2,9 @@ const initialState = {
   assessmentLoading: false,
   occupancyGroupList: [],
   assessmentList: [],
-  newAssessmentDialog: false
+  newAssessmentDialog: false,
+  responseStatus: '',
+  responseMessage: ''
 };
 
 export default function(state = initialState, action) {
@@ -41,6 +43,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         newAssessmentDialog: false
+      };
+
+    case 'GET_RESPONSESTATUS':
+      return {
+        ...state,
+        responseStatus: action.payload.status,
+        responseMessage: action.payload.statusText
       };
 
     default:

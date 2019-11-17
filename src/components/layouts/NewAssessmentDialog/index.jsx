@@ -17,17 +17,24 @@ import {
   Paper,
   Slide,
   InputAdornment,
+  Dialog,
   OutlinedInput
 } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import CloseIcon from '@material-ui/icons/Close';
 import { connect } from 'react-redux';
-import { closeNewAssessmentDialog } from '../../../actions/assessmentActions';
+import {
+  closeNewAssessmentDialog,
+  getAssessmentList,
+  submitNewlyCreatedAssessment
+} from '../../../actions/assessmentActions';
 
 class NewAssesmentDialog extends Component {
   state = {
     selectedOccupancy: '',
-    selectedOccupancyDescription: ''
+    selectedOccupancyDescription: '',
+    floorArea: '',
+    additionalFloorArea: ''
   };
 
   onChangeHandler = e => {
@@ -36,8 +43,34 @@ class NewAssesmentDialog extends Component {
     });
   };
 
+  textFieldOnChangeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   clearState = () => {
-    this.setState({ selectedOccupancy: '', selectedOccupancyDescription: '' });
+    this.setState({
+      selectedOccupancy: '',
+      selectedOccupancyDescription: '',
+      floorArea: '',
+      additionalFloorArea: ''
+    });
+    this.props.closeNewAssessmentDialog();
+  };
+
+  onSumbitHandler = () => {
+    this.props.submitNewlyCreatedAssessment(
+      localStorage.getItem('TOKEN'),
+      this.state.selectedOccupancy.id
+    );
+    // alert(this.state.selectedOccupancy.id);
+  };
+
+  canSubmit = () => {
+    if (!this.state.selectedOccupancy || !this.state.floorArea) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   render() {
@@ -54,7 +87,7 @@ class NewAssesmentDialog extends Component {
                 <IconButton
                   edge="start"
                   color="inherit"
-                  onClick={() => this.props.closeNewAssessmentDialog()}
+                  onClick={() => this.clearState()}
                 >
                   <CloseIcon />
                 </IconButton>
@@ -117,6 +150,9 @@ class NewAssesmentDialog extends Component {
                   </FormControl>
 
                   <TextField
+                    name="floorArea"
+                    value={this.state.floorArea}
+                    onChange={this.textFieldOnChangeHandler}
                     style={{ marginBottom: '8px' }}
                     variant="outlined"
                     label="Floor Area"
@@ -131,6 +167,9 @@ class NewAssesmentDialog extends Component {
                     }}
                   />
                   <TextField
+                    name="additionalFloorArea"
+                    value={this.state.additionalFloorArea}
+                    onChange={this.textFieldOnChangeHandler}
                     style={{ marginBottom: '8px' }}
                     variant="outlined"
                     label="Additional Floor Area"
@@ -177,6 +216,7 @@ class NewAssesmentDialog extends Component {
               </div>
               <div style={{ float: 'right', padding: '12px' }}>
                 <Button
+                  disabled={this.canSubmit()}
                   style={{
                     color: 'white',
                     padding: 'inherit',
@@ -184,11 +224,11 @@ class NewAssesmentDialog extends Component {
                   }}
                   color="secondary"
                   variant="contained"
+                  onClick={() => this.onSumbitHandler()}
                 >
                   Create New Assessment
                 </Button>
                 <Button
-                  color="danger"
                   style={{ borderColor: 'red', padding: 'inherit' }}
                   variant="outlined"
                   onClick={() => this.clearState()}
@@ -224,5 +264,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { closeNewAssessmentDialog }
+  { closeNewAssessmentDialog, getAssessmentList, submitNewlyCreatedAssessment }
 )(NewAssesmentDialog);
