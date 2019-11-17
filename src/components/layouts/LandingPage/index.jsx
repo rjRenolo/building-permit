@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component, Fragment } from 'react';
 import styles from './LandingPage.module.css';
 import {
   Typography,
@@ -15,7 +14,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { signIn } from '../../../actions/authActions';
 
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 /*
   check for authentication on redux
@@ -49,56 +48,62 @@ class LandingPage extends Component {
   render() {
     const { username, password, err, errMsg, loading } = this.state;
     const { status, errorMsg } = this.props.errorRed;
+    const { tokenKey } = this.props.authRed;
 
     return (
-      <div className={styles.container}>
-        <div className={styles.intro}>
-          <Typography style={{ fontWeight: 600 }} variant="h2" gutterBottom>
-            Portal
-          </Typography>
-          <Typography style={{ marginBottom: '42px' }} variant="h3">
-            <span style={{ color: '#02A8E8' }}>Syncsoft</span> Solutions
-          </Typography>
-          <Typography
-            style={{ fontSize: '1.23rem', color: 'grey' }}
-            variant="subtitle2"
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A modi
-            officiis corrupti veniam sequi praesentium dolore fugiat temporibus
-            pariatur exercitationem!
-          </Typography>
-        </div>
-        <div className={styles.signInForm}>
-          <ThemeProvider theme={theme}>
-            <Paper style={inStyles.signInPaper} elevation={6}>
-              <Typography style={{ marginBottom: '24px' }} variant="h4">
-                Online Office Portal
-              </Typography>
-              <Typography variant="subtitle1" color="error">
-                {errorMsg.non_field_errors}
-              </Typography>
+      <Fragment>
+        {tokenKey ? (
+          <Redirect from="/" to="/engineering/buildingpermit" />
+        ) : (
+          <Redirect to="/" />
+        )}
+        <div className={styles.container}>
+          <div className={styles.intro}>
+            <Typography style={{ fontWeight: 600 }} variant="h2" gutterBottom>
+              Portal
+            </Typography>
+            <Typography style={{ marginBottom: '42px' }} variant="h3">
+              <span style={{ color: '#02A8E8' }}>Syncsoft</span> Solutions
+            </Typography>
+            <Typography
+              style={{ fontSize: '1.23rem', color: 'grey' }}
+              variant="subtitle2"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. A modi
+              officiis corrupti veniam sequi praesentium dolore fugiat
+              temporibus pariatur exercitationem!
+            </Typography>
+          </div>
+          <div className={styles.signInForm}>
+            <ThemeProvider theme={theme}>
+              <Paper style={inStyles.signInPaper} elevation={6}>
+                <Typography style={{ marginBottom: '24px' }} variant="h4">
+                  Online Office Portal
+                </Typography>
+                <Typography variant="subtitle1" color="error">
+                  {errorMsg.non_field_errors}
+                </Typography>
 
-              <StyledTextField
-                name="username"
-                variant="outlined"
-                label="Username/Email"
-                value={username}
-                error={status}
-                autoComplete="off"
-                onChange={this.onInputChange}
-              />
-              <StyledTextField
-                name="password"
-                variant="outlined"
-                label="Password"
-                type="password"
-                value={password}
-                error={status}
-                onChange={this.onInputChange}
-              />
+                <StyledTextField
+                  name="username"
+                  variant="outlined"
+                  label="Username/Email"
+                  value={username}
+                  error={status}
+                  autoComplete="off"
+                  onChange={this.onInputChange}
+                />
+                <StyledTextField
+                  name="password"
+                  variant="outlined"
+                  label="Password"
+                  type="password"
+                  value={password}
+                  error={status}
+                  onChange={this.onInputChange}
+                />
 
-              <div className={styles.ButtonWrapper}>
-                
+                <div className={styles.ButtonWrapper}>
                   <Button
                     className={styles.Button}
                     color="primary"
@@ -110,23 +115,24 @@ class LandingPage extends Component {
                   >
                     Sign In
                   </Button>
-                
-                {this.props.authRed.signInLoading && (
-                  <CircularProgress
-                    style={{
-                      position: 'absolute',
-                      top: 48 / 3.5,
-                      left: (48 * 3) / 2.5
-                    }}
-                    size={28}
-                    color="secondary"
-                  />
-                )}
-              </div>
-            </Paper>
-          </ThemeProvider>
+
+                  {this.props.authRed.signInLoading && (
+                    <CircularProgress
+                      style={{
+                        position: 'absolute',
+                        top: 48 / 3.5,
+                        left: (48 * 3) / 2.5
+                      }}
+                      size={28}
+                      color="secondary"
+                    />
+                  )}
+                </div>
+              </Paper>
+            </ThemeProvider>
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

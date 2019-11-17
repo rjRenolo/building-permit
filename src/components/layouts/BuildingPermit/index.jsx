@@ -5,7 +5,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import AddIcon from '@material-ui/icons/Add';
 import { Typography, Button } from '@material-ui/core';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   getAssessmentList,
@@ -28,13 +28,18 @@ class BuildingPermit extends Component {
     this.props.getAssessmentList(this.props.authRed.tokenKey);
   }
 
+  tableEditHandler = id => {
+    // alert('Will route to ' + id);
+    // <Link to="/engineering/buildingpermit/assessment-details"/>
+  };
+
   render() {
     return (
       <Fragment>
         {!this.props.authRed.tokenKey ? (
-          <Redirect from="/buildingpermit" to="/" />
+          <Redirect from="/engineering/buildingpermit" to="/" />
         ) : (
-          <Redirect to="/buildingpermit" />
+          <Redirect to="/engineering/buildingpermit" />
         )}
         <div
           style={{
@@ -87,7 +92,7 @@ class BuildingPermit extends Component {
                 {
                   icon: 'edit',
                   tooltip: 'Edit Assessment',
-                  onClick: (event, rowData) => alert('You saved ' + rowData.id)
+                  onClick: (event, rowData) => this.tableEditHandler(rowData.id)
                 }
               ]}
             />

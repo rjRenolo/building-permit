@@ -12,6 +12,7 @@ import store from './store';
 
 import LandingPage from './components/layouts/LandingPage';
 import BuildingPermit from './components/layouts/BuildingPermit';
+import AssessmentDetails from './components/layouts/AssessmentDetails';
 import PageNotFound from './components/layouts/PageNotFound';
 
 class App extends Component {
@@ -30,15 +31,19 @@ class App extends Component {
         <Router>
           <Switch>
             {/* <Route exact path="/" component={LandingPage} /> */}
-            <Route exact path="/buildingpermit" component={BuildingPermit} />
+            <Route
+              exact
+              path="/engineering/buildingpermit"
+              component={BuildingPermit}
+            />
+            <Route
+              path="/engineering/buildingpermit/assessment-details"
+              component={AssessmentDetails}
+            />
             <Route exact path="/" component={LandingPage} />
             <Route component={PageNotFound} />
           </Switch>
-          {tokenKey ? (
-            <Redirect from="/" to="/buildingpermit" />
-          ) : (
-            <Redirect to="/" />
-          )}
+          
         </Router>
       </div>
     );
