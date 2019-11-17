@@ -17,7 +17,6 @@ import {
   Paper,
   Slide,
   InputAdornment,
-  Dialog,
   OutlinedInput
 } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
