@@ -25,7 +25,10 @@ class AssessmentDetails extends Component {
     // ************************************************************BASIC INFO ASSESSMENT
     const infoAssessment = (
       <div>
-        <Typography style={{ fontSize: '24px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Assessment Information
         </Typography>
         <Typography variant="subtitle1">
@@ -91,7 +94,10 @@ class AssessmentDetails extends Component {
     // ************************************************************BUILDING PROPERTY ASSESSMENT
     const buildingPropertyAssessment = (
       <div>
-        <Typography style={{ fontSize: '24px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Building Property
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -145,7 +151,10 @@ class AssessmentDetails extends Component {
     // ************************************************************ELECTRICAL ASSESSMENT
     const electricalAssessment = (
       <div>
-        <Typography style={{ fontSize: '24px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Electrical
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -211,7 +220,10 @@ class AssessmentDetails extends Component {
     // ************************************************************MECHANICAL ASSESSMENT
     const mechanicalAssessment = (
       <div>
-        <Typography style={{ fontSize: '24px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Mechanical
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -590,7 +602,10 @@ class AssessmentDetails extends Component {
     // ************************************************************PLUMBING ASSESSMENT
     const plumbingAssessment = (
       <div>
-        <Typography style={{ fontSize: '24px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Plumbing
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -890,7 +905,10 @@ class AssessmentDetails extends Component {
     // ************************************************************ELECTRONIC ASSESSMENT
     const electronicsAssessment = (
       <div>
-        <Typography style={{ fontSize: '24px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Electronics
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1047,7 +1065,10 @@ class AssessmentDetails extends Component {
     // ************************************************************BUILDING STRUCTURE ACCESSORIES ASSESSMENT
     const buildingStructAccessoriesAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Building Structure Accessories
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1246,7 +1267,10 @@ class AssessmentDetails extends Component {
     // ************************************************************BOOTHS ASSESSMENT
     const boothsAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Booths Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1299,7 +1323,10 @@ class AssessmentDetails extends Component {
     // ************************************************************CEMETERY ASSESSMENT
     const cemeteryAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Cemetery Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1378,7 +1405,10 @@ class AssessmentDetails extends Component {
     // ************************************************************CEMETERY ASSESSMENT
     const lineAndGradeAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Line & Grade Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1405,8 +1435,11 @@ class AssessmentDetails extends Component {
     // ************************************************************GROUND PREP & EXCAVATION ASSESSMENT
     const groundPrepAndExcaAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
-          Line & Grade Assessment
+        <Typography
+          style={{ fontSize: '15px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
+          Ground Preparation & Excavation Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
             onClick={() => alert('dialog pop-up na lang siguro')}
@@ -1471,7 +1504,10 @@ class AssessmentDetails extends Component {
     // ************************************************************FENCING ASSESSMENT
     const fencingAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Fencing Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1524,7 +1560,10 @@ class AssessmentDetails extends Component {
     // ************************************************************Pavement & Sidewalk ASSESSMENT
     const pavementAndSidewalkAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Pavement & Sidewalk Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1564,7 +1603,10 @@ class AssessmentDetails extends Component {
     // ************************************************************Scaffolding ASSESSMENT
     const scaffoldingAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Scaffolding Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1604,7 +1646,10 @@ class AssessmentDetails extends Component {
     // ************************************************************Sign ASSESSMENT
     const signAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Sign Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1745,7 +1790,10 @@ class AssessmentDetails extends Component {
     // ************************************************************REPAIR ASSESSMENT
     const repairAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Repair Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1781,11 +1829,14 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-    
+
     // ************************************************************RAISING OF BUILDING ASSESSMENT
     const raisingOfBuildingAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Raising of Building Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1807,12 +1858,15 @@ class AssessmentDetails extends Component {
         </Typography>
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
-    )
-    
+    );
+
     // ************************************************************DEMOLITION MOVING ASSESSMENT
     const demolitionMovingAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Demolition / Moving Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1884,14 +1938,17 @@ class AssessmentDetails extends Component {
             </span>
           }
         </Typography>
-      <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
+        <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
-    )
-    
+    );
+
     // ************************************************************CERIFICATE ASSESSMENT
     const certificateAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Certificate of Occupancy Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -1937,14 +1994,17 @@ class AssessmentDetails extends Component {
             </span>
           }
         </Typography>
-      <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
+        <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
-    )
-    
+    );
+
     // ************************************************************AMUSEMENT HOUSES ASSESSMENT
     const amusementHousesAssessment = (
       <div>
-        <Typography style={{ fontSize: '22px' }} variant="subtitle2">
+        <Typography
+          style={{ fontSize: '18px', textDecorationLine: 'underline' }}
+          variant="subtitle2"
+        >
           Amusement Houses Assessment
           <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
@@ -2003,9 +2063,9 @@ class AssessmentDetails extends Component {
             </span>
           }
         </Typography>
-      <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
+        <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
-    )
+    );
     return (
       <Fragment>
         {!localStorage.getItem('TOKEN') ? <Redirect to="/" /> : null}
@@ -2045,26 +2105,29 @@ class AssessmentDetails extends Component {
                 Assessment Properties
               </Typography>
               <hr style={{ marginBottom: '8px' }} />
-              {infoAssessment}
-              {buildingPropertyAssessment}
-              {electricalAssessment}
-              {mechanicalAssessment}
-              {plumbingAssessment}
-              {electronicsAssessment}
-              {buildingStructAccessoriesAssessment}
-              {boothsAssessment}
-              {cemeteryAssessment}
-              {lineAndGradeAssessment}
-              {groundPrepAndExcaAssessment}
-              {fencingAssessment}
-              {pavementAndSidewalkAssessment}
-              {scaffoldingAssessment}
-              {signAssessment}
-              {repairAssessment}
-              {raisingOfBuildingAssessment}
-              {demolitionMovingAssessment}
-              {certificateAssessment}
-              {amusementHousesAssessment}
+
+              {[
+                infoAssessment,
+                buildingPropertyAssessment,
+                electricalAssessment,
+                mechanicalAssessment,
+                plumbingAssessment,
+                electronicsAssessment,
+                buildingStructAccessoriesAssessment,
+                boothsAssessment,
+                cemeteryAssessment,
+                lineAndGradeAssessment,
+                groundPrepAndExcaAssessment,
+                fencingAssessment,
+                pavementAndSidewalkAssessment,
+                scaffoldingAssessment,
+                signAssessment,
+                repairAssessment,
+                raisingOfBuildingAssessment,
+                demolitionMovingAssessment,
+                certificateAssessment,
+                amusementHousesAssessment
+              ]}
             </Paper>
             <div
               style={{
@@ -2085,7 +2148,11 @@ class AssessmentDetails extends Component {
                 <Tab label="Mechanical" />
                 <Tab label="Plumbing" />
                 <Tab label="Electronics" />
-                <Tab label="Accessories" />
+                <Tab label="Building Structure Accessories" />
+                <Tab label="Booths" />
+                <Tab label="Cemetery" />
+                <Tab label="Line & Grade" />
+                <Tab label="Ground Preparation & Excavation" />
               </Tabs>
             </div>
           </div>
@@ -2094,6 +2161,27 @@ class AssessmentDetails extends Component {
     );
   }
 }
+
+// {infoAssessment}
+//               {buildingPropertyAssessment}
+//               {electricalAssessment}
+//               {mechanicalAssessment}
+//               {plumbingAssessment}
+//               {electronicsAssessment}
+//               {buildingStructAccessoriesAssessment}
+//               {boothsAssessment}
+//               {cemeteryAssessment}
+//               {lineAndGradeAssessment}
+//               {groundPrepAndExcaAssessment}
+//               {fencingAssessment}
+//               {pavementAndSidewalkAssessment}
+//               {scaffoldingAssessment}
+//               {signAssessment}
+//               {repairAssessment}
+//               {raisingOfBuildingAssessment}
+//               {demolitionMovingAssessment}
+//               {certificateAssessment}
+//               {amusementHousesAssessment}
 
 export default AssessmentDetails;
 
