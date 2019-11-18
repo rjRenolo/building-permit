@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends Component {
   handleClickOpen = () => {
-    alert('something');
+    alert(this.props.history.location);
   };
 
   render() {

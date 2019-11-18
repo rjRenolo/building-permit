@@ -16,6 +16,8 @@ import { signIn } from '../../../actions/authActions';
 
 import { Redirect } from 'react-router-dom';
 
+import Header from '../Header';
+
 /*
   check for authentication on redux
   redirect to the page if authenticated.
@@ -57,6 +59,7 @@ class LandingPage extends Component {
         ) : (
           <Redirect to="/" />
         )}
+        <Header />
         <div className={styles.container}>
           <div className={styles.intro}>
             <Typography style={{ fontWeight: 600 }} variant="h2" gutterBottom>

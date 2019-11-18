@@ -28,7 +28,6 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Header />
           <Switch>
             {/* <Route exact path="/" component={LandingPage} /> */}
             <Route

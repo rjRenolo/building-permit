@@ -13,6 +13,7 @@ import {
 } from '../../../actions/assessmentActions';
 
 import NewAssessmentDialog from '../NewAssessmentDialog';
+import Header from '../Header';
 class BuildingPermit extends Component {
   /*
   just show a modal that he/she is not authenticated
@@ -31,7 +32,8 @@ class BuildingPermit extends Component {
   tableEditHandler = id => {
     alert('Will route to ' + id);
     this.props.history.push(
-      '/engineering/buildingpermit/assessment-details/' + id
+      '/engineering/buildingpermit/assessment-details/' + id,
+      'assessmentDetails'
     );
     // <Link to="/engineering/buildingpermit/assessment-details"/>
   };
@@ -44,6 +46,7 @@ class BuildingPermit extends Component {
         ) : (
           <Redirect to="/engineering/buildingpermit" />
         )}
+        <Header />
         <div
           style={{
             width: '100%',
