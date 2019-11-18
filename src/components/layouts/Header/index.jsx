@@ -3,15 +3,26 @@ import styles from './Header.module.css';
 import syncsoftsol from '../../../assets/SyncSoftSol-Logo.png';
 import { Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 // dialog test imports
 
 class Header extends Component {
   handleClickOpen = () => {
-    alert(this.props.history.location);
+    alert('Log Out Func');
   };
 
   render() {
+    const logOutBtn = (
+      <div style={{ height: '100%' }}>
+        <div className={styles.navBtn} onClick={() => this.handleClickOpen()}>
+          <Typography style={{ padding: '14px' }} variant="button">
+            Log Out
+          </Typography>
+        </div>
+      </div>
+    );
+
     return (
       <div className={styles.header}>
         <div className={styles.container}>
@@ -26,20 +37,15 @@ class Header extends Component {
             />
           </Link>
 
-          <div style={{ height: '100%' }}>
-            <div
-              className={styles.navBtn}
-              onClick={() => this.handleClickOpen()}
-            >
-              <Typography style={{ padding: '14px' }} variant="button">
-                Log Out
-              </Typography>
-            </div>
-          </div>
+          {!localStorage.getItem('TOKEN') ? null : logOutBtn}
         </div>
       </div>
     );
   }
 }
 
-export default Header;
+const maptStateToProps = state => ({
+  authRed: state.AuthRed
+});
+
+export default connect(maptStateToProps)(Header);
