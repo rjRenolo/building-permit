@@ -16,8 +16,8 @@
   /* background-color: red; */
 }
 .headerLogo {
-  height: 50%;
-  margin-top: 8px;
+  height: 100%;
+  /* margin-top: 8px; */
 }
 
 .navBtn {

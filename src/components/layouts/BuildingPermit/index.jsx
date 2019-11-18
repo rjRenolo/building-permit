@@ -29,7 +29,10 @@ class BuildingPermit extends Component {
   }
 
   tableEditHandler = id => {
-    // alert('Will route to ' + id);
+    alert('Will route to ' + id);
+    this.props.history.push(
+      '/engineering/buildingpermit/assessment-details/' + id
+    );
     // <Link to="/engineering/buildingpermit/assessment-details"/>
   };
 
