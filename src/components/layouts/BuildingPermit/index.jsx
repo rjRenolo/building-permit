@@ -85,7 +85,10 @@ class BuildingPermit extends Component {
               columns={[
                 { title: 'ID', field: 'id' },
                 { title: 'Occupancy Group', field: 'occupancy_group.name' },
-                { title: 'Created On', field: 'created_on' },
+                {
+                  title: 'Created On',
+                  field: 'created_on'
+                },
                 { title: 'Updated On', field: 'updated_on' },
                 { title: 'Filing Fee', field: 'filing_fee', type: 'numeric' }
               ]}
