@@ -11,19 +11,26 @@ import {
   Paper,
   Tabs,
   Tab,
-  OutlinedInput
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from '@material-ui/icons/Edit'
+import {getAssessmentDets} from '../../../actions/assessmentDetsActions';
+import {connect } from 'react-redux';
+
 
 class AssessmentDetails extends Component {
   state = {
     occupancyGroup: 'Division A-1'
   };
 
+  componentDidMount(){
+    this.props.getAssessmentDets(this.props.match.params.id)
+  }
+
   render() {
     // ************************************************************BASIC INFO ASSESSMENT
     const infoAssessment = (
+      
       <div>
         <Typography
           style={{ fontSize: '18px', textDecorationLine: 'underline' }}
@@ -40,7 +47,20 @@ class AssessmentDetails extends Component {
                 textDecorationLine: 'underline'
               }}
             >
-              {this.state.occupancyGroup}
+              {"assessmentId"}
+            </span>
+          }
+        </Typography>
+        <Typography variant="subtitle1">
+          Filing Fee :{' '}
+          {
+            <span
+              style={{
+                fontWeight: 'bold',
+                textDecorationLine: 'underline'
+              }}
+            >
+              {"filingFee"}
             </span>
           }
         </Typography>
@@ -53,7 +73,7 @@ class AssessmentDetails extends Component {
                 textDecorationLine: 'underline'
               }}
             >
-              {this.state.occupancyGroup}
+              {"occupancyGroup"}
             </span>
           }
           <EditIcon
@@ -70,7 +90,7 @@ class AssessmentDetails extends Component {
                 textDecorationLine: 'underline'
               }}
             >
-              {this.state.occupancyGroup} m<sup>2</sup>
+              {"dateCreated"}
             </span>
           }
         </Typography>
@@ -83,14 +103,14 @@ class AssessmentDetails extends Component {
                 textDecorationLine: 'underline'
               }}
             >
-              {this.state.occupancyGroup} m<sup>2</sup>
+              {"dateUpdated"}
             </span>
           }
         </Typography>
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************BUILDING PROPERTY ASSESSMENT
     const buildingPropertyAssessment = (
       <div>
@@ -104,7 +124,7 @@ class AssessmentDetails extends Component {
             onClick={() => alert('change tab to Building Property')}
           />
         </Typography>
-
+  
         <Typography variant="subtitle1">
           Floor Area :{' '}
           {
@@ -147,7 +167,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************ELECTRICAL ASSESSMENT
     const electricalAssessment = (
       <div>
@@ -216,7 +236,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************MECHANICAL ASSESSMENT
     const mechanicalAssessment = (
       <div>
@@ -230,7 +250,7 @@ class AssessmentDetails extends Component {
             onClick={() => alert('change tab to Mechanical')}
           />
         </Typography>
-
+  
         <Typography variant="subtitle1">
           Ref (Without Ice Making) :{' '}
           {
@@ -598,7 +618,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************PLUMBING ASSESSMENT
     const plumbingAssessment = (
       <div>
@@ -901,7 +921,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************ELECTRONIC ASSESSMENT
     const electronicsAssessment = (
       <div>
@@ -1061,7 +1081,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************BUILDING STRUCTURE ACCESSORIES ASSESSMENT
     const buildingStructAccessoriesAssessment = (
       <div>
@@ -1263,7 +1283,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************BOOTHS ASSESSMENT
     const boothsAssessment = (
       <div>
@@ -1319,7 +1339,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************CEMETERY ASSESSMENT
     const cemeteryAssessment = (
       <div>
@@ -1401,7 +1421,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************CEMETERY ASSESSMENT
     const lineAndGradeAssessment = (
       <div>
@@ -1431,7 +1451,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************GROUND PREP & EXCAVATION ASSESSMENT
     const groundPrepAndExcaAssessment = (
       <div>
@@ -1500,7 +1520,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************FENCING ASSESSMENT
     const fencingAssessment = (
       <div>
@@ -1556,7 +1576,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************Pavement & Sidewalk ASSESSMENT
     const pavementAndSidewalkAssessment = (
       <div>
@@ -1599,7 +1619,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************Scaffolding ASSESSMENT
     const scaffoldingAssessment = (
       <div>
@@ -1642,7 +1662,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************Sign ASSESSMENT
     const signAssessment = (
       <div>
@@ -1786,7 +1806,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************REPAIR ASSESSMENT
     const repairAssessment = (
       <div>
@@ -1829,7 +1849,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************RAISING OF BUILDING ASSESSMENT
     const raisingOfBuildingAssessment = (
       <div>
@@ -1859,7 +1879,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************DEMOLITION MOVING ASSESSMENT
     const demolitionMovingAssessment = (
       <div>
@@ -1941,7 +1961,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************CERIFICATE ASSESSMENT
     const certificateAssessment = (
       <div>
@@ -1997,7 +2017,7 @@ class AssessmentDetails extends Component {
         <hr style={{ marginBottom: '12px', marginTop: '4px' }} />
       </div>
     );
-
+  
     // ************************************************************AMUSEMENT HOUSES ASSESSMENT
     const amusementHousesAssessment = (
       <div>
@@ -2075,7 +2095,7 @@ class AssessmentDetails extends Component {
               <IconButton
                 edge="start"
                 color="inherit"
-                onClick={() => console.log(this.props.history.location)}
+                onClick={() => console.log(this.props.match.params.id)}
               >
                 <ArrowBackIcon />
               </IconButton>
@@ -2183,7 +2203,12 @@ class AssessmentDetails extends Component {
 //               {certificateAssessment}
 //               {amusementHousesAssessment}
 
-export default AssessmentDetails;
+
+const mapStateToProps = state=>({
+  assessmentDetsRed : state.assessmentDetsRed
+})
+
+export default connect(mapStateToProps, {getAssessmentDets})(AssessmentDetails);
 
 const theme = createMuiTheme({
   palette: {
