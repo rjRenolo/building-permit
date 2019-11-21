@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styles from './AssessmentDetails.module.css';
 import { Redirect } from 'react-router-dom';
 import DataContainer from './DataContainer';
+import InputFilter from './InputFilter';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import {
@@ -80,24 +81,7 @@ class AssessmentDetails extends Component {
                 width: '72%'
               }}
             >
-              <Tabs
-                value={0}
-                variant="scrollable"
-                scrollButtons="auto"
-                indicatorColor="secondary"
-                style={{ background: '#02A8E8' }}
-              >
-                <Tab label="Building Property" />
-                <Tab label="Electrical" />
-                <Tab label="Mechanical" />
-                <Tab label="Plumbing" />
-                <Tab label="Electronics" />
-                <Tab label="Building Structure Accessories" />
-                <Tab label="Booths" />
-                <Tab label="Cemetery" />
-                <Tab label="Line & Grade" />
-                <Tab label="Ground Preparation & Excavation" />
-              </Tabs>
+              <InputFilter />
             </div>
           </div>
         </ThemeProvider>
@@ -105,6 +89,24 @@ class AssessmentDetails extends Component {
     );
   }
 }
+// <Tabs
+//   value={0}
+//   variant="scrollable"
+//   scrollButtons="auto"
+//   indicatorColor="secondary"
+//   style={{ background: '#02A8E8' }}
+// >
+//   <Tab label="Building Property" />
+//   <Tab label="Electrical" />
+//   <Tab label="Mechanical" />
+//   <Tab label="Plumbing" />
+//   <Tab label="Electronics" />
+//   <Tab label="Building Structure Accessories" />
+//   <Tab label="Booths" />
+//   <Tab label="Cemetery" />
+//   <Tab label="Line & Grade" />
+//   <Tab label="Ground Preparation & Excavation" />
+// </Tabs>
 
 const mapStateToProps = state => ({
   assessmentDetsRed: state.assessmentDetsRed

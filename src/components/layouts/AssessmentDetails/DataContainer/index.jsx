@@ -3,6 +3,7 @@ import {Typography, CircularProgress} from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import {connect }from 'react-redux';
 import {getAssessmentDets} from '../../../../actions/assessmentDetsActions';
+import {changeTabIndex} from '../../../../actions/inputActions';
 
 
 class DataContainer extends Component {
@@ -25,11 +26,11 @@ class DataContainer extends Component {
         if(occupancyGroupId >=1 && occupancyGroupId <=2){
         return [
                 <InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 // <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
                 // <CemeteryAssessment key="cemetery" data={this.props.assessmentDetsRed.cemeteryAssessment}/>,
@@ -48,11 +49,11 @@ class DataContainer extends Component {
             ];
         }else if(occupancyGroupId == 3){
             return[<InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
@@ -68,11 +69,11 @@ class DataContainer extends Component {
         }else if(occupancyGroupId >= 4 && occupancyGroupId <= 5){
             return [
                 <InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
@@ -89,11 +90,11 @@ class DataContainer extends Component {
         }else if(occupancyGroupId >= 6 && occupancyGroupId <= 8){
             return [
                 <InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
@@ -109,11 +110,11 @@ class DataContainer extends Component {
             ]
         }else if(occupancyGroupId >= 9 && occupancyGroupId <= 11){
             return[<InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
@@ -129,11 +130,11 @@ class DataContainer extends Component {
         }else if(occupancyGroupId == 12){
             return[
                 <InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
@@ -147,11 +148,11 @@ class DataContainer extends Component {
         }else if(occupancyGroupId >= 13 && occupancyGroupId <= 17){
             return[
                 <InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
                 <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
@@ -165,11 +166,11 @@ class DataContainer extends Component {
         }else if(occupancyGroupId >= 18 && occupancyGroupId <= 21){
             return[
                 <InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
                 <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
@@ -184,11 +185,11 @@ class DataContainer extends Component {
         }else if(occupancyGroupId == 22){
             return[
                 <InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
-                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
-                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
                 <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
@@ -203,7 +204,7 @@ class DataContainer extends Component {
         }else if(occupancyGroupId == 23){
             return[
                 <InfoAssessment key="info" data={InfoData}/>,
-                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
                 <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
@@ -216,9 +217,9 @@ class DataContainer extends Component {
             ]
         }else if(occupancyGroupId == 24){
            return [ <InfoAssessment key="info" data={InfoData}/>,
-            <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
-            <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
-            <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+            <BuildingPropertyAssessment key="bldgprop" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+            <ElectricalAssessment key="electrical" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+            <PlumbingAssessment key="plumbing" change={this.props.changeTabIndex} data={this.props.assessmentDetsRed.plumbingAssessment}/>,
             <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
             <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
             <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
@@ -259,7 +260,7 @@ const mapStateToProps=state=>({
     assessmentDetsRed:state.assessmentDetsRed
 })
 
-export default connect(mapStateToProps, {getAssessmentDets})(DataContainer);
+export default connect(mapStateToProps, {getAssessmentDets, changeTabIndex})(DataContainer);
 
 
 export function InfoAssessment(props){
@@ -356,7 +357,7 @@ export function ElectricalAssessment(props){
                 Electrical
                 <EditIcon
                   style={{ cursor: 'pointer', margin: '4px' }}
-                  onClick={() => alert('change tab to Electrical')}
+                  onClick={() => props.change(null, 'Electrical')}
                 />
               </Typography>
               <Typography variant="subtitle1">
@@ -428,7 +429,7 @@ export function BuildingPropertyAssessment(props){
                 Building Property
                 <EditIcon
                   style={{ cursor: 'pointer', margin: '4px' }}
-                  onClick={() => alert('change tab to Building Property')}
+                  onClick={() => props.change(null, 'Building Property')}
                 />
               </Typography>
         
@@ -531,7 +532,7 @@ export function MechanicalAssessment(props){
         Mechanical
         <EditIcon
             style={{ cursor: 'pointer', margin: '4px' }}
-            onClick={() => alert('change tab to Mechanical')}
+            onClick={() => props.change(null, 'Mechanical')}
         />
         </Typography>
 
@@ -937,7 +938,7 @@ export function PlumbingAssessment(props){
             Plumbing
             <EditIcon
                 style={{ cursor: 'pointer', margin: '4px' }}
-                onClick={() => alert('change tab to Plumbing')}
+                onClick={() => props.change(null, 'Plumbing')}
             />
             </Typography>
             <Typography variant="subtitle1">
@@ -1252,7 +1253,7 @@ export function ElectronicsAssessment(props){
             Electronics
             <EditIcon
                 style={{ cursor: 'pointer', margin: '4px' }}
-                onClick={() => alert('change tab to Electronics')}
+                onClick={() => props.change(null, 'Electronics')}
             />
             </Typography>
             <Typography variant="subtitle1">
