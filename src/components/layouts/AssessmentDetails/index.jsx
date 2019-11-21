@@ -37,7 +37,10 @@ class AssessmentDetails extends Component {
               <IconButton
                 edge="start"
                 color="inherit"
-                onClick={() => console.log(this.props.match.params.id)}
+                // onClick={() => console.log(this.props.match.params.id)}
+                onClick={() =>
+                  this.props.history.push('/engineering/buildingpermit')
+                }
               >
                 <ArrowBackIcon />
               </IconButton>

@@ -30,7 +30,7 @@ class BuildingPermit extends Component {
   }
 
   tableEditHandler = id => {
-    alert('Will route to ' + id);
+    // alert('Will route to ' + id);
     this.props.history.push(
       '/engineering/buildingpermit/assessment-details/' + id,
       'assessmentDetails'
@@ -117,10 +117,10 @@ const mapStateToProps = state => ({
   authRed: state.authRed
 });
 
-export default connect(
-  mapStateToProps,
-  { getAssessmentList, getOccupancyGroupList }
-)(BuildingPermit);
+export default connect(mapStateToProps, {
+  getAssessmentList,
+  getOccupancyGroupList
+})(BuildingPermit);
 
 const theme = createMuiTheme({
   palette: {

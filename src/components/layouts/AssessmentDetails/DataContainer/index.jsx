@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Typography} from '@material-ui/core';
+import {Typography, CircularProgress} from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import {connect }from 'react-redux';
 import {getAssessmentDets} from '../../../../actions/assessmentDetsActions';
@@ -22,8 +22,32 @@ class DataContainer extends Component {
             dateUpdated:this.props.assessmentDetsRed.dateUpdated
         }
 
-        if(occupancyGroupId <=1 || occupancyGroupId <=2){
-        return [<InfoAssessment key="info" data={InfoData}/>,
+        if(occupancyGroupId >=1 && occupancyGroupId <=2){
+        return [
+                <InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                // <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
+                // <CemeteryAssessment key="cemetery" data={this.props.assessmentDetsRed.cemeteryAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,
+                // <PavementAndSidewalkAssessment key="pavementsidewalk" data={this.props.assessmentDetsRed.pavementAndSidewalkAssessment}/>,
+                // <ScaffoldingAssessment key="scaffolding" data={this.props.assessmentDetsRed.scaffoldingAssessment}/>,
+                // <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>,
+                // <RaisingOfBuilding key="raising" data={this.props.assessmentDetsRed.raisingOfBuildingAssessment}/>, 
+                // <AmusementHousesAssessment key="amusement" data={this.props.assessmentDetsRed.amusementHousesAssessment}/>
+                
+            ];
+        }else if(occupancyGroupId == 3){
+            return[<InfoAssessment key="info" data={InfoData}/>,
                 <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
                 <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
                 <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
@@ -31,7 +55,6 @@ class DataContainer extends Component {
                 <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
                 <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
                 <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
-                <CemeteryAssessment key="cemetery" data={this.props.assessmentDetsRed.cemeteryAssessment}/>,
                 <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
                 <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
                 <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
@@ -39,19 +62,194 @@ class DataContainer extends Component {
                 <ScaffoldingAssessment key="scaffolding" data={this.props.assessmentDetsRed.scaffoldingAssessment}/>,
                 <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>,
                 <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
-                <RaisingOfBuilding key="raising" data={this.props.assessmentDetsRed.raisingOfBuildingAssessment}/>, 
                 <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
-                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,
-                <AmusementHousesAssessment key="amusement" data={this.props.assessmentDetsRed.amusementHousesAssessment}/>
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+        ]
+        }else if(occupancyGroupId >= 4 && occupancyGroupId <= 5){
+            return [
+                <InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                <PavementAndSidewalkAssessment key="pavementsidewalk" data={this.props.assessmentDetsRed.pavementAndSidewalkAssessment}/>,
+                <ScaffoldingAssessment key="scaffolding" data={this.props.assessmentDetsRed.scaffoldingAssessment}/>,
+                <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>,
                 
-            ];
+            ]
+        }else if(occupancyGroupId >= 6 && occupancyGroupId <= 8){
+            return [
+                <InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                <PavementAndSidewalkAssessment key="pavementsidewalk" data={this.props.assessmentDetsRed.pavementAndSidewalkAssessment}/>,
+                <ScaffoldingAssessment key="scaffolding" data={this.props.assessmentDetsRed.scaffoldingAssessment}/>,
+                <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>,
+                
+            ]
+        }else if(occupancyGroupId >= 9 && occupancyGroupId <= 11){
+            return[<InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                <PavementAndSidewalkAssessment key="pavementsidewalk" data={this.props.assessmentDetsRed.pavementAndSidewalkAssessment}/>,
+                <ScaffoldingAssessment key="scaffolding" data={this.props.assessmentDetsRed.scaffoldingAssessment}/>,
+                <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>,]
+                
+        }else if(occupancyGroupId == 12){
+            return[
+                <InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>
+            ]
+        }else if(occupancyGroupId >= 13 && occupancyGroupId <= 17){
+            return[
+                <InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>
+            
+            ]
+        }else if(occupancyGroupId >= 18 && occupancyGroupId <= 21){
+            return[
+                <InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>
+            
+            ]
+        }else if(occupancyGroupId == 22){
+            return[
+                <InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+                <MechanicalAssessment key="mechanical" data={this.props.assessmentDetsRed.mechanicalAssessment}/>,
+                <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+                <ElectronicsAssessment key="electronics" data={this.props.assessmentDetsRed.electronicsAssessment}/>,
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <BoothsAssessment key="booths" data={this.props.assessmentDetsRed.boothsAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>
+            
+            ]
+        }else if(occupancyGroupId == 23){
+            return[
+                <InfoAssessment key="info" data={InfoData}/>,
+                <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+                <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+                <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>
+            
+            ]
+        }else if(occupancyGroupId == 24){
+           return [ <InfoAssessment key="info" data={InfoData}/>,
+            <BuildingPropertyAssessment key="bldgprop" data={this.props.assessmentDetsRed.buildingPropertyAssessment}/>, 
+            <ElectricalAssessment key="electrical" data={this.props.assessmentDetsRed.electricalAssessment}/>, 
+            <PlumbingAssessment key="plumbing" data={this.props.assessmentDetsRed.plumbingAssessment}/>,
+            <BuildingStrucAccessoriesAssessment key="bldgaccesories"data={this.props.assessmentDetsRed.buildingStructAccessoriesAssessment}/>,
+            <LineAndGradeAssessment key="linegrade" data={this.props.assessmentDetsRed.lineAndGradeAssessment}/>,
+            <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+            <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+            <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+            <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+            <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+            <SignAssessment key="sign" data={this.props.assessmentDetsRed.signAssessment}/>
+        ]
+        }else if(occupancyGroupId == 25){
+            return [
+                <CemeteryAssessment key="cemetery" data={this.props.assessmentDetsRed.cemeteryAssessment}/>,
+                <GroundPrepAndExcavation key="ground" data={this.props.assessmentDetsRed.groundPrepAndExcavationAssessment}/>,
+                <FencingAssessment key="fencing" data={this.props.assessmentDetsRed.fencingAssessment}/>,
+                <PavementAndSidewalkAssessment key="pavementsidewalk" data={this.props.assessmentDetsRed.pavementAndSidewalkAssessment}/>,
+                <RepairAssessment key="repair" data={this.props.assessmentDetsRed.repairAssessment}/>,
+                <DemolitionMovingAssessment key="demolishmove" data={this.props.assessmentDetsRed.demolitionMovingAssessment}/>,
+                <CertificateAssessment key="certificate" data={this.props.assessmentDetsRed.certificateOfOccupancyAssessment}/>,  
+                    
+            ]
+        }else{
+            return <CircularProgress />
         }
+
     }
     
     render() {
         return (
             <div>
                 {this.filter(this.props.data.occupancyGroup.id)}
+                {/* {this.filter(3)} */}
             </div>
         )
     }
