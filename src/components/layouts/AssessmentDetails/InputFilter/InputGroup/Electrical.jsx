@@ -8,35 +8,29 @@ import {
   Snackbar,
   Checkbox
 } from '@material-ui/core';
+import { DecimalInput, IntegerInput } from '../index';
 import CloseIcon from '@material-ui/icons/Close';
-import { DecimalInput } from '../index';
 import { connect } from 'react-redux';
 import { submitProps, snackHandler } from '../../../../../actions/inputActions';
 
-class BuildingProperty extends Component {
+class Electrical extends Component {
   state = {
-    height: this.props.assessmentDetsRed.buildingPropertyAssessment.height,
-    floor_area: this.props.assessmentDetsRed.buildingPropertyAssessment
-      .floor_area,
-    additional_floor_area: this.props.assessmentDetsRed
-      .buildingPropertyAssessment.additional_floor_area,
-    is_new: this.props.assessmentDetsRed.buildingPropertyAssessment.is_new,
-    changes: {
-      is_new: this.props.assessmentDetsRed.buildingPropertyAssessment.is_new
-    }
+    total_connected_load: this.props.assessmentDetsRed.electricalAssessment
+      .total_connected_load,
+    total_transformer_capacity: this.props.assessmentDetsRed
+      .electricalAssessment.total_transformer_capacity,
+    number_of_poles: this.props.assessmentDetsRed.electricalAssessment
+      .number_of_poles,
+    number_of_attachments: this.props.assessmentDetsRed.electricalAssessment
+      .number_of_attachments,
+    changes: {}
   };
 
   inputChange = e => {
-    // const { target } = e;
-    // console.log(target);
-    // this.setState({ ...target });
     this.setState({ [e.target.name]: e.target.value });
   };
 
   changes = e => {
-    // const obj = { [e.target.name]: e.target.value };
-    // this.setState({ [e.target.name]: e.target.value });
-    // this.props.getIt({ [e.target.name]: e.target.value });
     if (e.target.value) {
       const obj = { [e.target.name]: e.target.value };
       const tmpObj = { ...this.state.changes, ...obj };
@@ -48,31 +42,18 @@ class BuildingProperty extends Component {
     }
   };
 
-  checkBoxHandler = () => {
-    this.setState({
-      is_new: !this.state.is_new,
-      changes: { ...this.state.changes, is_new: !this.state.is_new }
-    });
-  };
-
   render() {
     return (
       <Fragment>
-        <Typography variant="h6">Is New</Typography>
-        <Checkbox
-          style={{ marginBottom: '12px' }}
-          checked={this.state.is_new}
-          onChange={this.checkBoxHandler}
-        />
         <Typography variant="h6">
-          Height <span style={{ fontSize: '14px' }}>unit</span>
+          Total Connected Load <span style={{ fontSize: '14px' }}>unit</span>
         </Typography>
         <TextField
           style={{ marginBottom: '12px' }}
           fullWidth
-          name="height"
+          name="total_connected_load"
           variant="outlined"
-          value={this.state.height}
+          value={this.state.total_connected_load}
           onChange={this.inputChange}
           placeholder="0.0"
           onBlurCapture={this.changes}
@@ -81,36 +62,53 @@ class BuildingProperty extends Component {
           }}
         />
         <Typography variant="h6">
-          Floor Area <span style={{ fontSize: '14px' }}>unit</span>
+          Total Transformer Capacity{' '}
+          <span style={{ fontSize: '14px' }}>unit</span>
         </Typography>
         <TextField
           style={{ marginBottom: '12px' }}
           fullWidth
-          name="floor_area"
+          name="total_transformer_capacity"
           variant="outlined"
-          value={this.state.floor_area}
+          value={this.state.total_transformer_capacity}
           onChange={this.inputChange}
           placeholder="0.0"
+          onBlurCapture={this.changes}
           InputProps={{
             inputComponent: DecimalInput
           }}
-          onBlurCapture={this.changes}
         />
         <Typography variant="h6">
-          Additional Floor Area <span style={{ fontSize: '14px' }}>unit</span>
+          Number of Pole(s) <span style={{ fontSize: '14px' }}>unit</span>
         </Typography>
         <TextField
           style={{ marginBottom: '12px' }}
           fullWidth
-          name="additional_floor_area"
+          name="number_of_poles"
           variant="outlined"
-          value={this.state.additional_floor_area}
+          value={this.state.number_of_poles}
           onChange={this.inputChange}
           placeholder="0.0"
-          InputProps={{
-            inputComponent: DecimalInput
-          }}
           onBlurCapture={this.changes}
+          InputProps={{
+            inputComponent: IntegerInput
+          }}
+        />
+        <Typography variant="h6">
+          Number of Attachment(s) <span style={{ fontSize: '14px' }}>unit</span>
+        </Typography>
+        <TextField
+          style={{ marginBottom: '12px' }}
+          fullWidth
+          name="number_of_attachments"
+          variant="outlined"
+          value={this.state.number_of_attachments}
+          onChange={this.inputChange}
+          placeholder="0.0"
+          onBlurCapture={this.changes}
+          InputProps={{
+            inputComponent: IntegerInput
+          }}
         />
         <Button
           variant="contained"
@@ -120,7 +118,7 @@ class BuildingProperty extends Component {
           style={{ color: 'white', padding: '12px', fontSize: '18px' }}
           onClick={() =>
             this.props.submitProps(
-              'building-property-assessment',
+              'electrical-assessment',
               this.props.assessmentDetsRed.assessmentId,
               this.state.changes
             )
@@ -166,10 +164,5 @@ const maptStateToProps = state => ({
 });
 
 export default connect(maptStateToProps, { submitProps, snackHandler })(
-  BuildingProperty
+  Electrical
 );
-
-// const DecimalInput = props => {
-//   const { inputRef, ...other } = props;
-//   return <NumberFormat {...other} getInputRef={inputRef} />;
-// };

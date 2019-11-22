@@ -14,6 +14,7 @@ import {
 import NumberFormat from 'react-number-format';
 import { changeTabIndex } from '../../../../actions/inputActions';
 import BldgPropGroup from './InputGroup/BuildingProperty';
+import Electrical from './InputGroup/Electrical';
 
 class InputFilter extends Component {
   render() {
@@ -74,7 +75,25 @@ class InputFilter extends Component {
           </div>
         </TabPanel>
         <TabPanel value={this.props.inputsRed.tabIndex} index="Electrical">
-          Electrical
+          <div
+            style={{
+              height: '82vh',
+              overflowY: 'scroll',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}
+          >
+            <div
+              style={{
+                width: '56%',
+                padding: '8px',
+                marginTop: '8px'
+              }}
+            >
+              <Electrical />
+            </div>
+          </div>
         </TabPanel>
         <TabPanel value={this.props.inputsRed.tabIndex} index="Electronics">
           Electronics
@@ -100,5 +119,5 @@ export const DecimalInput = props => {
 };
 export const IntegerInput = props => {
   const { inputRef, ...other } = props;
-  return <NumberFormat {...other} getInputRef={inputRef} />;
+  return <NumberFormat {...other} getInputRef={inputRef} decimalSeparator="" />;
 };

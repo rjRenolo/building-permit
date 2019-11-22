@@ -66,6 +66,11 @@ export default function(state = initialState, action) {
         ...state,
         buildingPropertyAssessment: action.payload
       };
+    case 'ELECTRICAL_ASSESSMENT':
+      return {
+        ...state,
+        electricalAssessment: action.payload
+      };
     default:
       return state;
   }
