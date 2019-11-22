@@ -29,6 +29,7 @@ class AssessmentDetails extends Component {
   }
 
   render() {
+    console.log(this.props.assessmentDetsRed.buildingPropertyAssessment);
     return (
       <Fragment>
         {!localStorage.getItem('TOKEN') ? <Redirect to="/" /> : null}

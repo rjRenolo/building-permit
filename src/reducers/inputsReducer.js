@@ -1,6 +1,7 @@
 const initialState = {
   tabIndex: 'Building Property',
-  inputs: {}
+  showSnack: false,
+  loading: false
 };
 
 export default function(state = initialState, action) {
@@ -11,10 +12,16 @@ export default function(state = initialState, action) {
         tabIndex: action.payload
       };
 
-    case 'GET_INPUTS':
+    case 'INPUT_SUBMIT_LOADING':
       return {
         ...state,
-        inputs: action.payload
+        loading: !state.loading
+      };
+
+    case 'SNACKBAR':
+      return {
+        ...state,
+        showSnack: !state.showSnack
       };
 
     default:

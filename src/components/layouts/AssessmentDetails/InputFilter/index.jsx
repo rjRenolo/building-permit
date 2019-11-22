@@ -11,27 +11,11 @@ import {
   InputLabel,
   OutlinedInput
 } from '@material-ui/core';
+import NumberFormat from 'react-number-format';
 import { changeTabIndex } from '../../../../actions/inputActions';
 import BldgPropGroup from './InputGroup/BuildingProperty';
 
 class InputFilter extends Component {
-  state = {
-    tabIndex: '',
-    floor_area: '',
-    changes: { asd: 'asd' }
-  };
-
-  handleChange = (event, tabIndex) => {
-    this.setState({ tabIndex });
-  };
-
-  // textFieldChangeHandler = e => {
-  //   this.setState({ [e.target.name]: e.target.value });
-  // };
-  // changes = e => {
-  //   alert({ [e.target.name]: e.target.value });
-  // };
-
   render() {
     function TabPanel(props) {
       return (
@@ -86,43 +70,6 @@ class InputFilter extends Component {
               }}
             >
               <BldgPropGroup />
-              {/* <FormControl
-                fullWidth
-                style={{ marginBottom: '12px' }}
-              >
-                <Typography variant="h6">asdjoijsdf</Typography>
-                <TextField
-                  variant="outlined"
-                  name="floor_area"
-                  //   fullWidth
-                  placeholder="0.0"
-                  value={this.state.floor_area}
-                  onChange={this.textFieldChangeHandler}
-                  onBlur={this.changes}
-                  // label="Floor Area"
-                  type="number"
-                  startAdornment={
-                    <InputAdornment position="start">
-                      m<sup>2</sup>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1>
-              <h1>Building Property</h1> */}
             </div>
           </div>
         </TabPanel>
@@ -147,8 +94,11 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, { changeTabIndex })(InputFilter);
 
-// {/* <Tab label="Building Property" />
-// <Tab value={1} label="Electrical" />
-// <Tab value={2} label="Mechanical" />
-// <Tab value={3} label="Plumbing" />
-// <Tab label="Electronics" /> */}
+export const DecimalInput = props => {
+  const { inputRef, ...other } = props;
+  return <NumberFormat {...other} getInputRef={inputRef} />;
+};
+export const IntegerInput = props => {
+  const { inputRef, ...other } = props;
+  return <NumberFormat {...other} getInputRef={inputRef} />;
+};

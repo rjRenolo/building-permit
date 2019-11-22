@@ -16,7 +16,6 @@ export const getAssessmentDets = id => dispatch => {
       reqHeader
     )
     .then(res => {
-      console.log(res.data);
       dispatch({ type: 'GET_ASSESSMENT_PROPERTIES', payload: res.data });
     })
     .catch(err => {

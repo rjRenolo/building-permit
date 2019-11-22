@@ -60,6 +60,12 @@ export default function(state = initialState, action) {
           action.payload.certificate_of_occupancy_assessment,
         amusementHousesAssessment: action.payload.amusement_houses_assessment
       };
+
+    case 'BLDG_PROP_ASSESSMENT':
+      return {
+        ...state,
+        buildingPropertyAssessment: action.payload
+      };
     default:
       return state;
   }
