@@ -1,0 +1,204 @@
+{
+    "id": 1,
+    "created_on": "2019-11-20T20:00:59.312861+08:00",
+    "updated_on": "2019-11-21T06:13:57.740051+08:00",
+    "filing_fee": 100.0,
+    "occupancy_group": {
+        "id": 1,
+        "name": "Division A-1"
+    },
+    "permit_owner": {
+        "id": 1,
+        "fullname": "Alexius Academia",
+        "address": "Purok 6, Paco, Botolan, Zambales",
+        "contact_number": "09494196250"
+    },
+    "electrical_assessment": {
+        "id": 1,
+        "total_connected_load": 2.0,
+        "total_transformer_capacity": 0.0,
+        "number_of_poles": 0,
+        "number_of_attachments": 0
+    },
+    "mechanical_assessment": {
+        "id": 1,
+        "ref_without_ice": 0.0,
+        "ref_with_ice": 0.0,
+        "airconditioning_system": 0.0,
+        "aircondition_unit": 0,
+        "ventilation": 0.0,
+        "escalator": 0.0,
+        "funicular_kw": 0.0,
+        "funicular_travel": 0.0,
+        "cable_car_kw": 0.0,
+        "cable_car_travel": 0.0,
+        "elevator_dumbwaiters": 0,
+        "elevator_passenger": 0,
+        "elevator_car": 0,
+        "elevator_construction": 0,
+        "elevator_freight": 0,
+        "boiler": 0.0,
+        "water_heater": 0,
+        "sump_and_pump": 0.0,
+        "sprinkler_system": 0,
+        "generating_units": 0.0,
+        "compressed_air": 0,
+        "gas_meter": 0,
+        "power_piping": 0.0,
+        "other_engines": 0.0,
+        "pressure_vessels": 0.0,
+        "other_machineries": 0.0,
+        "material_handling_equipment": 0.0,
+        "weighing_scale": 0.0
+    },
+    "plumbing_assessment": {
+        "id": 1,
+        "water_closet": 0,
+        "floor_drain": 0,
+        "sink": 0,
+        "lavatory": 0,
+        "faucet": 0,
+        "shower_head": 0,
+        "slop_sink": 0,
+        "grease_trap": 0,
+        "dental_cuspidor": 0,
+        "bar_soda_fountain_sink": 0,
+        "urinal": 0,
+        "garage_trap": 0,
+        "gas_fired_water_heater": 0,
+        "laundry_sink": 0,
+        "bath_tub": 0,
+        "bidet": 0,
+        "drinking_fountain": 0,
+        "laboratory_sink": 0,
+        "fixed_type_sterilizer": 0,
+        "water_meter_12": 0,
+        "water_meter_25": 0,
+        "septic_tank": 0.0
+    },
+    "electronics_assessment": {
+        "id": 1,
+        "switches": 0,
+        "stations": 0,
+        "machines": 0,
+        "electronic_outlets": 0,
+        "terminals": 0,
+        "radio_broadcasts": 0,
+        "communication_installations": 0,
+        "display_systems": 0,
+        "number_of_poles": 0,
+        "number_of_attachments": 0,
+        "others": 0
+    },
+    "building_property_assessment": {
+        "id": 1,
+        "is_new": true,
+        "height": 5.0,
+        "floor_area": 100.0,
+        "additional_floor_area": 0.0
+    },
+    "building_structure_accessories_assessment": {
+        "id": 1,
+        "open_spaces": 10.0,
+        "bank_and_record_vault": 0.0,
+        "swimming_pool_regular": 0.0,
+        "swimming_pool_improvised": 0.0,
+        "shower_locker_rooms": 0.0,
+        "firewalls_separate_from_building": 0.0,
+        "tower_height": 0.0,
+        "tower_support": 0,
+        "storage_silos": 0.0,
+        "storage_silos_platform": 0.0,
+        "smokestacks": 0.0,
+        "chimney": 0.0,
+        "fixed_ovens": 0.0,
+        "kiln_furnace": 0.0,
+        "tank_above_ground": 0.0,
+        "tank_under_ground": 0.0,
+        "treatment_tank": 0.0
+    },
+    "booths_assessment": {
+        "id": 1,
+        "permanent": 0.0,
+        "temporary": 0.0,
+        "inspection_knockdown_temporary": 0
+    },
+    "cemetery_assessment": {
+        "id": 1,
+        "tombs": 0.0,
+        "semi_enclosed_mausoleoms": 0.0,
+        "total_enclosed_mausoleoms": 0.0,
+        "multi_level_interment": 0.0,
+        "columbarium": 0.0
+    },
+    "line_and_grade_assessment": {
+        "id": 1,
+        "length": 10.0
+    },
+    "ground_preparation_and_excavation_assessment": {
+        "id": 1,
+        "common_foundation": 10.0,
+        "foundation_with_basement": 0.0,
+        "other_excavation": 0.0,
+        "approved_encroaching": 0.0
+    },
+    "fencing_assessment": {
+        "id": 1,
+        "masonry_metal_or_concrete_height": 0.0,
+        "masonry_metal_or_concrete_length": 0.0,
+        "others_length": 0.0
+    },
+    "pavement_and_sidewalk_assessment": {
+        "id": 1,
+        "construction_of_pavement": 0.0,
+        "enclosure_of_sidewalk": 0.0
+    },
+    "scaffolding_assessment": {
+        "id": 1,
+        "length": 0.0,
+        "months": 0
+    },
+    "sign_assessment": {
+        "id": 1,
+        "is_new": true,
+        "erection_and_anchorage": 0.0,
+        "neon_business": 0.0,
+        "neon_advertising": 0.0,
+        "illuminated_business": 0.0,
+        "illuminated_advertising": 0.0,
+        "painted_business": 0.0,
+        "painted_advertising": 0.0,
+        "others_business": 0.0,
+        "others_advertising": 0.0
+    },
+    "repair_assessment": {
+        "id": 1,
+        "vertical": 0.0,
+        "horizontal": 0.0
+    },
+    "raising_of_building_assessment": {
+        "id": 1,
+        "generated_area": 0.0
+    },
+    "demolition_moving_assessment": {
+        "id": 1,
+        "buildings": 0.0,
+        "systems_frames": 0.0,
+        "structures": 0.0,
+        "appendage": 0.0,
+        "area_to_be_moved": 0.0
+    },
+    "certificate_of_occupancy_assessment": {
+        "id": 1,
+        "j2_aviaries": 0.0,
+        "j2_towers": 0.0,
+        "change_in_use": 0.0
+    },
+    "amusement_houses_assessment": {
+        "id": 1,
+        "first_class_theaters": false,
+        "second_class_theaters": false,
+        "third_class_theaters": false,
+        "grandstands": false
+    }
+}

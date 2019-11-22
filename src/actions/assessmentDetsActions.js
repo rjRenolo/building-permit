@@ -11,10 +11,12 @@ export const getAssessmentDets = id => dispatch => {
   // fetch assessment details
   axios
     .get(
-      'https://lgu-platform-backend.herokuapp.com/api/engineering/building-permit-assessment/'+id,
+      'https://lgu-platform-backend.herokuapp.com/api/engineering/building-permit-assessment/' +
+        id,
       reqHeader
     )
     .then(res => {
+      console.log(res.data);
       dispatch({ type: 'GET_ASSESSMENT_PROPERTIES', payload: res.data });
     })
     .catch(err => {

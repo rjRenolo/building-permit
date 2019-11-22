@@ -57,7 +57,7 @@ class AssessmentDetails extends Component {
                 height: '100%',
                 width: '28%',
                 padding: '4px',
-                overflow: 'scroll'
+                overflowY: 'scroll'
               }}
             >
               <Typography
@@ -76,7 +76,7 @@ class AssessmentDetails extends Component {
             </Paper>
             <div
               style={{
-                backgroundColor: 'rgba(33,33,33,.4)',
+                // backgroundColor: 'rgba(33,33,33,.4)',
                 height: '100%',
                 width: '72%'
               }}

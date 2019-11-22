@@ -1,16 +1,36 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Typography, Tab, Tabs, Box } from '@material-ui/core';
+import {
+  Typography,
+  Tab,
+  Tabs,
+  Box,
+  TextField,
+  InputAdornment,
+  FormControl,
+  InputLabel,
+  OutlinedInput
+} from '@material-ui/core';
 import { changeTabIndex } from '../../../../actions/inputActions';
+import BldgPropGroup from './InputGroup/BuildingProperty';
 
 class InputFilter extends Component {
   state = {
-    tabIndex: ''
+    tabIndex: '',
+    floor_area: '',
+    changes: { asd: 'asd' }
   };
 
   handleChange = (event, tabIndex) => {
     this.setState({ tabIndex });
   };
+
+  // textFieldChangeHandler = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
+  // changes = e => {
+  //   alert({ [e.target.name]: e.target.value });
+  // };
 
   render() {
     function TabPanel(props) {
@@ -49,7 +69,62 @@ class InputFilter extends Component {
           value={this.props.inputsRed.tabIndex}
           index="Building Property"
         >
-          Building Property
+          <div
+            style={{
+              height: '82vh',
+              overflowY: 'scroll',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}
+          >
+            <div
+              style={{
+                width: '56%',
+                padding: '8px',
+                marginTop: '8px'
+              }}
+            >
+              <BldgPropGroup />
+              {/* <FormControl
+                fullWidth
+                style={{ marginBottom: '12px' }}
+              >
+                <Typography variant="h6">asdjoijsdf</Typography>
+                <TextField
+                  variant="outlined"
+                  name="floor_area"
+                  //   fullWidth
+                  placeholder="0.0"
+                  value={this.state.floor_area}
+                  onChange={this.textFieldChangeHandler}
+                  onBlur={this.changes}
+                  // label="Floor Area"
+                  type="number"
+                  startAdornment={
+                    <InputAdornment position="start">
+                      m<sup>2</sup>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1>
+              <h1>Building Property</h1> */}
+            </div>
+          </div>
         </TabPanel>
         <TabPanel value={this.props.inputsRed.tabIndex} index="Electrical">
           Electrical

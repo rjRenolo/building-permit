@@ -1,5 +1,6 @@
 const initialState = {
-  tabIndex: 'Electrical'
+  tabIndex: 'Building Property',
+  inputs: {}
 };
 
 export default function(state = initialState, action) {
@@ -8,6 +9,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         tabIndex: action.payload
+      };
+
+    case 'GET_INPUTS':
+      return {
+        ...state,
+        inputs: action.payload
       };
 
     default:
