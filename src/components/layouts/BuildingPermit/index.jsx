@@ -19,6 +19,12 @@ class BuildingPermit extends Component {
   just show a modal that he/she is not authenticated
   ok button for the modal
   and redirect
+  
+  {!this.props.authRed.tokenKey ? (
+          <Redirect from="/engineering/buildingpermit" to="/" />
+        ) : (
+          <Redirect to="/engineering/buildingpermit" />
+        )}
 
 */
   state = {
@@ -41,11 +47,7 @@ class BuildingPermit extends Component {
   render() {
     return (
       <Fragment>
-        {!this.props.authRed.tokenKey ? (
-          <Redirect from="/engineering/buildingpermit" to="/" />
-        ) : (
-          <Redirect to="/engineering/buildingpermit" />
-        )}
+        
         <Header />
         <div
           style={{
